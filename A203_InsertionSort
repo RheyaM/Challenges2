@@ -1,0 +1,23 @@
+from random import randint
+
+def insertionsort(L):
+  for i in range(1,len(L)):
+    current = L[i]
+    for j in range(i-1,-1,-1):
+      if L[j]>current:
+        L[j+1]=L[j]
+        L[j]=current
+      else:
+        L[j+1]=current
+        break
+
+  return(L)
+my_list=[]
+for i in range(9):
+      new_num = randint(0,1000)
+      while new_num in my_list:
+          new_num = randint(0,1000)
+      my_list.append(new_num)
+
+print(my_list)
+print(insertionsort(my_list))
