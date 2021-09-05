@@ -1,0 +1,86 @@
+import random
+f = open("/Users/macbookpro/Documents/Monsters.txt", "r")
+monsters = {}
+for line in f:
+    mlist = []
+    fulllist = line.split(",")
+    if fulllist[0]!="ID":
+        for x in range(1,4):
+            mlist.append(fulllist[x])
+        for x in range(4,11):
+            mlist.append(int(fulllist[x]))
+        monsters[int(fulllist[0])]=mlist
+
+
+def encyclopedia():
+    inpmonster=str(input("Input monster name:"))
+    for entry in monsters:
+        if monsters[entry][0]==inpmonster:
+            print(monsters[entry][2])
+            print("Origin:",monsters[entry][1],"\n")
+            break
+
+
+def randmonster():
+    index = 0
+    while index not in monsters.keys():
+        index = random.randint(1,895)
+    return(index)
+
+
+def attack(a,b):
+    if monsters[a][3]>monsters[b][6]:
+        print("\nCongrats, ur buff or w/e\n")
+    else:
+        print("\nSorry, ur opponent was too strong :/\n")
+    print(monsters[a][0],"attack:" ,monsters[a][3])
+    print(monsters[b][0],"defense:",monsters[b][6],"\n")
+    
+    
+def magicattack(a,b):
+    if monsters[a][4]>monsters[b][5]:
+        print("\nCongrats, ur buff or w/e\n")
+    else:
+        print("\nSorry, ur opponent was too strong :/\n")
+    print(monsters[a][0],"Magical Force:" ,monsters[a][4])
+    print(monsters[b][0],"Magical Defense:",monsters[b][5],"\n")
+
+
+def pokemonbattle():
+    valid = False
+    while not valid:
+        inpmonster=str(input("Input monster name:"))
+        for entry in monsters:
+            if monsters[entry][0]==inpmonster:
+                valid = True
+                ID = entry
+                break
+        if not valid:
+            print("not a valid monster, please enter another name")
+    print("\nYour monster is",inpmonster,"the",monsters[ID][2])
+    opponentID = randmonster()
+    print("Your opponent is",monsters[opponentID][0],"the",monsters[opponentID][2],"\n")
+    valid = False
+    while not valid:
+        choice = int(input("Enter 1 to normal attack \nEnter 2 to magic attack:"))
+        if choice!=1 and choice!=2:
+            print("invalid choice, please input 1 or 2")
+        else:
+            valid = True
+    if choice == 1:
+        attack(ID,opponentID)
+    else:
+        magicattack(ID,opponentID)
+     
+     
+inp = 0
+while True:
+    inp = int(input("Enter 1 to search up a monster \nEnter 2 to fight another monster \nEnter 3 to exit"))
+    if inp ==1:
+        encyclopedia()
+    elif inp == 2:
+        pokemonbattle()
+    elif inp == 3:
+        break
+    else:
+        print("Please enter a valid number")
