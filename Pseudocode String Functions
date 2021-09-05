@@ -1,0 +1,81 @@
+""" Making Pseudocode real. Create the Pseudocode in Python.
+By the way this is NOT a nice way to name your definitions in Python, but it 
+lets you get away with it.
+pass lets me not code up the function. It's like on a quiz show.
+"""
+
+def LEFT(string,length):   
+    # returns the left most characters of a string. 
+    # I've done this one as an example.
+    return string[0:length]
+
+def RIGHT(string,length):
+    # Returns the right most characters of a string
+    return (string[len(string)-length:len(string):1])
+
+def MID (string,start,end):
+    # Returns string from position x, length y. Note that the count starts at 1. 
+    return (string[start-1:end])
+    
+def LENGTH (string):
+    #Returns the lengths of a string
+    return (len(string))
+
+def LCASE (string):
+# From here on in you need to figure out the parameters and the function.    
+    return (string.lower())
+    
+def UCASE(string):
+  #Returns the upper case character. (Does nothing if already upper case). Note that this works on characters rather than a string.
+    return (string.upper())
+
+def TO_UPPER(string):
+  #Returns a string in upper class. (Non-alphabetic characters and upper case characters remain unchanged)
+    return (string.upper())
+ 
+def TO_LOWER(string):
+  #Returns a string in lower class. (Non-alphabetic characters and lower case characters remain unchanged)
+    return (string.lower())
+ 
+def NUM_TO_STRING(integer):
+    return (str(integer))
+
+def STRING_TO_NUM(string):
+    return (int(string))
+
+def INT(string):
+    return (int(string))
+
+def ASC(string):
+  #Changes a character into its ASCII number.
+  return (ord(string))
+# Program to find the ASCII value of the given character
+
+# example function being called    
+x = input("input string or number or whatevuh")
+print("1. LEFT\n2. RIGHT\n3.MID\n4.LENGTH\n5.LCASE\n6.UCASE\n7.TO_UPPER\n8.TO_LOWER\n9. NUM_TO_STRING\n10. STRING_TO_NUM\n11. INT\n12. ASC")
+choice=int(input("Input choice"))
+if choice==1:
+  print(LEFT(x))
+elif choice==2:
+  print(RIGHT(x))
+elif choice==3:
+  print(MID(x))
+elif choice==4:
+  print(LENGTH(x))
+elif choice==5:
+  print(LCASE(x))
+elif choice==6:
+  print(UCASE(x))
+elif choice==7:
+  print(TO_UPPER(x))
+elif choice==8:
+  print(TO_LOWER(x))
+elif choice==9:
+  print(NUM_TO_STRING(x))
+elif choice==10:
+  print(STRING_TO_NUM(x))
+elif choice==11:
+  print(INT(x))
+elif choice==12:
+  print(ASC(x))
