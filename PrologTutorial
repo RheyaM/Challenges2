@@ -1,0 +1,16 @@
+anml(dog).
+anml(cat).
+anml(tiger).
+anml(deer).
+anml(hamster).
+anml(mouse).
+anml(cheetah).
+predator(cat,mouse).
+predator(tiger,deer).
+predator(cheetah,deer).
+prey(mouse,cat).
+prey(deer,tiger).
+
+going2eat(X,Y):-
+    predator(X,Y),
+    prey(Y,X).
